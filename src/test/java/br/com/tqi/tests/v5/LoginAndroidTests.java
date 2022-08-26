@@ -1,24 +1,19 @@
-package br.com.tqi.tests.v4;
+package br.com.tqi.tests.v5;
 
-import br.com.tqi.tests.v4.constants.Constants;
-import br.com.tqi.tests.v4.driver.DriverManager;
-import br.com.tqi.tests.v4.pages.HomePage;
-import br.com.tqi.tests.v4.pages.LoginPage;
-import br.com.tqi.tests.v4.pages.RegisterPage;
+import br.com.tqi.tests.v5.constants.Constants;
+import br.com.tqi.tests.v5.driver.DriverManager;
+import br.com.tqi.tests.v5.pages.HomePage;
+import br.com.tqi.tests.v5.pages.RegisterPage;
+import br.com.tqi.tests.v5.pages.LoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.net.MalformedURLException;
 
 public class LoginAndroidTests {
 
     LoginPage loginPage = new LoginPage(DriverManager.start());
     RegisterPage registerPage = new RegisterPage(DriverManager.start());
     HomePage homePage = new HomePage(DriverManager.start());
-
-    public LoginAndroidTests() throws MalformedURLException {
-    }
 
     @AfterEach
     void shutDown() {

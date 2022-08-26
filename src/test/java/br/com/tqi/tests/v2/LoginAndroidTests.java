@@ -3,6 +3,7 @@ package br.com.tqi.tests.v2;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,15 +22,14 @@ public class LoginAndroidTests {
     public static final String PASSWORD = "123456";
 
     AppiumDriver<WebElement> driver;
-//    AppiumDriver driver; // se appium client >= 8 não tem generics <>
 
     @BeforeEach
-    void start(){
+    void start() {
         AppiumDriverLocalService service;
         service = new AppiumServiceBuilder()
                 .withIPAddress("0.0.0.0")
                 .usingAnyFreePort()
-//                .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub") //necesário se appium client > 8 e appium server = 1
+                .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub")
                 .build();
         service.start();
 
@@ -47,29 +47,13 @@ public class LoginAndroidTests {
         desiredCapabilities.setCapability("fullReset", "true");
         desiredCapabilities.setCapability("noReset", "false");
 
-//        driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), desiredCapabilities); // se appium client <= 7 tem /wd/hub
         driver = new AppiumDriver<>(service.getUrl(), desiredCapabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-////        // Se appium client > 8, não use DesiredCapabilities, utilize UiAutomator2Options e Duration.ofSeconds:
-//        UiAutomator2Options options = new UiAutomator2Options()
-//                .setDeviceName("emulator-5554")
-//                .setPlatformName("Android")
-////        //forma 1 de abrir apk
-//                .setAppPackage("com.tqi.login")
-//                .setAppActivity("com.tqi.login.activity.LoginActivity")
-////        //forma 2 de abrir apk
-////                .setApp("src/test/resources/app/login.apk")
-////                .setFullReset(true)
-////                .setNoReset(false)
-//                .eventTimings();
-////        driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723"), desiredCapabilities); // se appium client >= 8 não tem /wd/hub
-//        driver = new AndroidDriver(service.getUrl(), options);
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterEach
-    void stop(){
+    void stop() {
         driver.quit();
     }
 

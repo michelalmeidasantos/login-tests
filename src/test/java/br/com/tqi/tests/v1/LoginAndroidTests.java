@@ -1,7 +1,6 @@
 package br.com.tqi.tests.v1;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
@@ -13,8 +12,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class LoginAndroidTests {
@@ -25,7 +22,7 @@ public class LoginAndroidTests {
         service = new AppiumServiceBuilder()
                 .withIPAddress("0.0.0.0")
                 .usingAnyFreePort()
-//                .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub") //necesário se appium client > 8 e appium server = 1
+                .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub")
                 .build();
         service.start();
 
@@ -44,26 +41,8 @@ public class LoginAndroidTests {
         desiredCapabilities.setCapability("noReset", "false");
 
         AppiumDriver<WebElement> driver;
-//        driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), desiredCapabilities); // se appium client <= 7 tem /wd/hub
         driver = new AppiumDriver<>(service.getUrl(), desiredCapabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-////        // Se appium client > 8, não use DesiredCapabilities, utilize UiAutomator2Options e Duration.ofSeconds:
-//        UiAutomator2Options options = new UiAutomator2Options()
-//                .setDeviceName("emulator-5554")
-//                .setPlatformName("Android")
-////        //forma 1 de abrir apk
-//                .setAppPackage("com.tqi.login")
-//                .setAppActivity("com.tqi.login.activity.LoginActivity")
-////        //forma 2 de abrir apk
-////                .setApp("src/test/resources/app/login.apk")
-////                .setFullReset(true)
-////                .setNoReset(false)
-//                .eventTimings();
-//        AppiumDriver driver; // se appium client >= 8 não tem generics <>
-////        driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723"), desiredCapabilities); // se appium client >= 8 não tem /wd/hub
-//        driver = new AndroidDriver(service.getUrl(), options);
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.findElement(By.id("com.tqi.login:id/textViewLinkRegister")).click();
         driver.findElement(By.id("com.tqi.login:id/textInputEditTextName")).sendKeys("teste");

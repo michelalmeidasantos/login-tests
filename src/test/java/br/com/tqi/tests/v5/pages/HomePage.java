@@ -1,4 +1,4 @@
-package br.com.tqi.tests.v4.pages;
+package br.com.tqi.tests.v5.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    AppiumDriver<WebElement> driver;
+    AppiumDriver driver; // appium client >= 8 não tem generic<>
 
-    public HomePage(AppiumDriver<WebElement> driver) {
+    public HomePage(AppiumDriver driver) { // appium client >= 8 não tem generic<>
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

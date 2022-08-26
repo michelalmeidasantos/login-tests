@@ -1,7 +1,6 @@
 package br.com.tqi.tests.v4.pages;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
@@ -17,15 +16,15 @@ public class LoginPage {
     }
 
     @AndroidFindBy(id = "com.tqi.login:id/textViewLinkRegister")
-    public MobileElement registerButton;
+    public WebElement registerButton;
 
     @AndroidFindBy(id = "com.tqi.login:id/textInputEditTextEmail")
-    public MobileElement emailInput;
+    public WebElement emailInput;
 
     @AndroidFindBy(id = "com.tqi.login:id/textInputEditTextPassword")
-    public MobileElement passwordInput;
+    public WebElement passwordInput;
 
     @AndroidFindBy(id = "com.tqi.login:id/buttonLogin")
-    public MobileElement loginButton;
+    public WebElement loginButton;
 
 }

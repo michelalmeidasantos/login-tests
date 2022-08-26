@@ -16,7 +16,7 @@ public class LoginAndroidTests {
     HomePage homePage = new HomePage(DriverManager.start());
 
     @AfterEach
-    void shutDown(){
+    void shutDown() {
         DriverManager.stop();
     }
 
