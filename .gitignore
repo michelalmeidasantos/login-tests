@@ -1,3 +1,16 @@
+### Artifacts ###
+target/
+
+### Gradle ###
+.gradle
+**/build/
+!src/**/build/
+build
+
+### IDEs ###
+/.vscode
+/.idea
+
 # Compiled class file
 *.class
 
