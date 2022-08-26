@@ -46,6 +46,6 @@ Utilização de Page Objects para organizar o teste
 
 Ajuste do driver para rodar o teste no [BrowserStack](https://www.browserstack.com/)
 
-### v
+### v5
 
 Cópia da v3, utilizando o appium java-client 8.1.1, para visualizar mudanças da nova versão
