@@ -33,7 +33,6 @@ public class DriverManager {
 //                .setFullReset(true)
 //                .setNoReset(false)
 //                .eventTimings();
-////        driver = new AndroidDriver(new URL("http://0.0.0.0:4723"), desiredCapabilities); // se appium client >= 8 não tem /wd/hub
 //        driver = new AndroidDriver(service.getUrl(), options);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             return driver;
