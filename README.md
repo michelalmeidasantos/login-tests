@@ -16,7 +16,7 @@ cd ~/workspace
 git clone https://github.com/michelalmeidasantos/login-tests.git
 ```
 **Obs.:** É necessário ter configurado todas as dependencias do appium:
-ANDROID_HOME, JAVA_HOME, node, appium server (npm install -g appium).
+ANDROID_HOME, JAVA_HOME, node, appium server (npm install -g appium) e [appium inspector](https://github.com/appium/appium-inspector/releases).
 
 **Obs. 2:** É possível utilizar appium doctor (npm install -g appium-doctor) para verificar se sua instalação está OK.
 
