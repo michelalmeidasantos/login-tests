@@ -20,9 +20,8 @@ public class DriverManager {
         if (driver == null) {
 
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("device", "Samsung Galaxy Tab S7");
+            caps.setCapability("device", "Samsung Galaxy S20");
             caps.setCapability("app", "bs://04fe3755c09aeb8542a9c4455d2d9efd191a8c18");
-            caps.setCapability("os_version", "10.0");
 
             driver = new AppiumDriver<>(new URL("https://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub"), caps);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
