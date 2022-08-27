@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class LoginAndroidTests {
@@ -41,6 +42,7 @@ public class LoginAndroidTests {
         desiredCapabilities.setCapability("noReset", "false");
 
         AppiumDriver<WebElement> driver;
+//        driver = new AppiumDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), desiredCapabilities);
         driver = new AppiumDriver<>(service.getUrl(), desiredCapabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -55,6 +57,7 @@ public class LoginAndroidTests {
         Assertions.assertEquals("teste@teste.com", driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[2]")).getText());
 
         driver.quit();
+        service.stop();
     }
 
 }

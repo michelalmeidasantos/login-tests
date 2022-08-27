@@ -11,10 +11,10 @@ public class DriverManager {
     }
 
     static AppiumDriver driver; // appium client >= 8 não tem generic <>
+    static AppiumDriverLocalService service;
 
     public static AppiumDriver start() { // appium client >= 8 não tem generic <>
         if (driver == null) {
-            AppiumDriverLocalService service;
             service = new AppiumServiceBuilder()
                     .withIPAddress("0.0.0.0")
                     .usingAnyFreePort()
@@ -42,6 +42,7 @@ public class DriverManager {
 
     public static void stop() {
         driver.quit();
+        service.stop();
     }
 
 }

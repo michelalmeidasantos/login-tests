@@ -15,10 +15,10 @@ public class DriverManager {
     }
 
     static AppiumDriver<WebElement> driver;
+    static AppiumDriverLocalService service;
 
     public static AppiumDriver<WebElement> start() {
         if (driver == null) {
-            AppiumDriverLocalService service;
             service = new AppiumServiceBuilder()
                     .withIPAddress("0.0.0.0")
                     .usingAnyFreePort()
@@ -50,6 +50,7 @@ public class DriverManager {
 
     public static void stop() {
         driver.quit();
+        service.stop();
     }
 
 }

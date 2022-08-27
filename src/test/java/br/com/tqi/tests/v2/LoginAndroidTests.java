@@ -22,10 +22,10 @@ public class LoginAndroidTests {
     public static final String PASSWORD = "123456";
 
     AppiumDriver<WebElement> driver;
+    AppiumDriverLocalService service;
 
     @BeforeEach
     void start() {
-        AppiumDriverLocalService service;
         service = new AppiumServiceBuilder()
                 .withIPAddress("0.0.0.0")
                 .usingAnyFreePort()
@@ -55,6 +55,7 @@ public class LoginAndroidTests {
     @AfterEach
     void stop() {
         driver.quit();
+        service.stop();
     }
 
     @Test
