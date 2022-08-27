@@ -29,6 +29,18 @@ Abrir o emulador e clicar no Run de um teste, direto do IntelliJ, ou utilizar o 
 | `./gradlew test --tests br.com.tqi.tests.v1.LoginAndroidTests.logarAposCriarUsuario` | Roda os testes usando Gradle, caso desejado passar a opção `--tests` + `package` + `metodo de teste` |
 
 ## <a name="structure"></a>Estrutura do projeto
+src\
+└─test\
+└─└─java\
+└─└─└─br.com.tqi.tests\
+└─└─└─└─v1\
+└─└─└─└─v2\
+└─└─└─└─v3\
+└─└─└─└─v4\
+└─└─└─└─v5\
+└─└─resources\
+└─└─└─app\
+└─└─└─└─login.apk
 
 ### v1
 
